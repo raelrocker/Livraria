@@ -7,6 +7,9 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Livraria.Repositories;
+using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore;
 
 namespace Livraria
 {
@@ -29,6 +32,13 @@ namespace Livraria
         {
             // Add framework services.
             services.AddMvc();
+
+            // Add EntityFramework services.
+            services.AddEntityFramework();
+
+            // Add AppDbContext
+            services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration["Data:DefaultConnection:ConnectionString"]));
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
