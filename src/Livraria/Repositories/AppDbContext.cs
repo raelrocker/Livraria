@@ -13,6 +13,11 @@ namespace Livraria.Repositories
             :base(options)
         { }
 
+        protected override void OnModelCreating(ModelBuilder buider)
+        {
+            buider.ForSqlServerUseIdentityColumns();
+        }
+
         DbSet<Livro> Livros { get; set; }
     }
 }

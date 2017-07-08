@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
-using Microsoft.AspNet.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Livraria.Repositories.Core;
 
-namespace Livraria.Repositories
+namespace Livraria.Repositories.Persistence
 {
     public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
     {
