@@ -15,6 +15,7 @@
             <th>Ano</th>
             <th>Editora</th>
             <th>Estoque</th>
+            <th>#</th>
         </tr>
     </thead>
     <tbody>
@@ -27,6 +28,13 @@
                 <td>@item.Ano</td>
                 <td>@item.Editora</td>
                 <td>@item.Estoque</td>
+                <td>
+                    @using (Html.BeginForm("Deletar", "Livros", FormMethod.Post, new { @id = item.Id }))
+                    {
+                        @Html.ActionLink("Editar", "Editar", "Livros", new { @id = item.Id }, new { @class = "btn btn-sm btn-primary" })
+                        <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Tem certeza?')">Remover</button>
+                    }
+                </td>
             </tr>
         }
     </tbody>

@@ -45,5 +45,41 @@ namespace Livraria.Controllers
             }
             return View(livro);
         }
+
+        [HttpGet]
+        public IActionResult Editar(int id = 0)
+        {
+            if (id == 0)
+            {
+                return RedirectToAction("Index");
+            }
+            var livro = _unitOfWork.Livros.Get(id);
+            if (livro == null)
+            {
+                return RedirectToAction("Index");
+            }
+            return View(livro);
+        }
+
+        [HttpPost]
+        public IActionResult Editar(int id, Livro livro)
+        {
+            if (ModelState.IsValid)
+            {
+                var livroAtual = _unitOfWork.Livros.Get(id);
+                livroAtual.Titulo = livro.Titulo;
+                livroAtual.Ano = livro.Ano;
+                livroAtual.Autor = livro.Autor;
+                livroAtual.Edicao = livro.Edicao;
+                livroAtual.Editora = livro.Editora;
+                livroAtual.Estoque = livro.Estoque;
+                livroAtual.ISBN = livro.ISBN;
+                livroAtual.Paginas = livro.Paginas;
+                
+                _unitOfWork.Complete();
+                return RedirectToAction("Index");
+            }
+            return View(livro.Id);
+        }
     }
 }
