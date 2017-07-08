@@ -24,5 +24,11 @@ namespace Livraria.Controllers
             var livros = _unitOfWork.Livros.GetAll();
             return View(livros);
         }
+
+        // GET: /<controller>/Cadastrar
+        public string Cadastrar()
+        {
+            return "Novo livro";
+        }
     }
 }
