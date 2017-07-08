@@ -29,7 +29,7 @@
                 <td>@item.Editora</td>
                 <td>@item.Estoque</td>
                 <td>
-                    @using (Html.BeginForm("Deletar", "Livros", FormMethod.Post, new { @id = item.Id }))
+                    @using (Html.BeginForm("Deletar", "Livros", new { id = item.Id }, FormMethod.Post ))
                     {
                         @Html.ActionLink("Editar", "Editar", "Livros", new { @id = item.Id }, new { @class = "btn btn-sm btn-primary" })
                         <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Tem certeza?')">Remover</button>

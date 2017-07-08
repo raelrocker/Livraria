@@ -81,5 +81,14 @@ namespace Livraria.Controllers
             }
             return View(livro.Id);
         }
+
+        [HttpPost]
+        public IActionResult Deletar(int id)
+        {
+            var livro = _unitOfWork.Livros.Get(id);
+            _unitOfWork.Livros.Remove(livro);
+            _unitOfWork.Complete();
+            return RedirectToAction("Index");
+        }
     }
 }
