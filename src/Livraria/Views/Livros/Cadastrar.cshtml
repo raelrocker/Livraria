@@ -1,0 +1,52 @@
+﻿@model Livraria.Models.Livro
+@{ 
+    Layout = "/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Cadatrar Livro</h2>
+@Html.ValidationSummary(true) 
+@using (Html.BeginForm())
+{
+    <div class="form-group">
+        @Html.LabelFor(model => model.Titulo, "Título")
+        @Html.TextBoxFor(model => model.Titulo, new { @class = "form-control", @required = "required" })
+        <span class="text-danger">@Html.ValidationMessageFor(model => model.Titulo)</span>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Autor, "Autor")
+        @Html.TextBoxFor(model => model.Autor, new { @class = "form-control", @required = "required" })
+        <span class="text-danger">@Html.ValidationMessageFor(model => model.Autor)</span>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Editora, "Editora")
+        @Html.TextBoxFor(model => model.Editora, new { @class = "form-control", @required = "required" })
+        <span class="text-danger">@Html.ValidationMessageFor(model => model.Editora)</span>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Edicao, "Edição")
+        @Html.TextBoxFor(model => model.Edicao, new { @class = "form-control", @required = "required" })
+        <span class="text-danger">@Html.ValidationMessageFor(model => model.Edicao)</span>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Ano, "Ano")
+        @Html.TextBoxFor(model => model.Ano, new { @class = "form-control", @required = "required" })
+        <span class="text-danger">@Html.ValidationMessageFor(model => model.Ano)</span>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Paginas, "Páginas")
+        @Html.TextBoxFor(model => model.Paginas, new { @class = "form-control", @required = "required" })
+        <span class="text-danger">@Html.ValidationMessageFor(model => model.Paginas)</span>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.ISBN, "ISBN")
+        @Html.TextBoxFor(model => model.ISBN, new { @class = "form-control", @required = "required" })
+        <span class="text-danger">@Html.ValidationMessageFor(model => model.ISBN)</span>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Estoque, "Estoque")
+        @Html.TextBoxFor(model => model.Estoque, new { @class = "form-control", @required = "required" })
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-success">Cadastrar</button>
+    </div>
+}

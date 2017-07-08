@@ -12,6 +12,7 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Livraria.Repositories.Core;
 using Livraria.Repositories.Persistence;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
 
 namespace Livraria
 {
@@ -32,6 +33,7 @@ namespace Livraria
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
             // Add framework services.
             services.AddMvc();
 
@@ -51,12 +53,10 @@ namespace Livraria
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
-
             app.UseMvc(routes =>
             {
                 routes.MapRoute("default", "{controller=Livros}/{action=Index}/{id?}");
             });
-
             app.Run(context =>
             {
                 context.Response.Redirect("/");

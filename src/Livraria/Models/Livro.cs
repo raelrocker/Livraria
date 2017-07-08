@@ -27,5 +27,6 @@ namespace Livraria.Models
         public int Paginas { get; set; }
         [Required(ErrorMessage = "ISBN é obrigatório.")]
         public string ISBN { get; set; }
+        public int Estoque { get; set; }
     }
 }

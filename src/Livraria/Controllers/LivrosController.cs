@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Livraria.Repositories.Core;
+using Livraria.Models;
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -26,9 +27,23 @@ namespace Livraria.Controllers
         }
 
         // GET: /<controller>/Cadastrar
-        public string Cadastrar()
+        [HttpGet]
+        public IActionResult Cadastrar()
         {
-            return "Novo livro";
+            return View(new Livro());
+        }
+
+        // POST: /<controller>/Cadastrar
+        [HttpPost]
+        public IActionResult Cadastrar(Livro livro)
+        {
+            if (ModelState.IsValid)
+            {
+                _unitOfWork.Livros.Add(livro);
+                _unitOfWork.Complete();
+                return RedirectToAction("Index");
+            }
+            return View(livro);
         }
     }
 }
