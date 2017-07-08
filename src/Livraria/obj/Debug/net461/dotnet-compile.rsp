@@ -174,7 +174,7 @@
 --resource:"C:\Users\rael\Documents\Visual Studio 2015\Projects\Livraria\src\Livraria\obj\Debug\net461\Livrariadotnet-compile.deps.json",Livraria.deps.json
 C:\Users\rael\Documents\Visual Studio 2015\Projects\Livraria\src\Livraria\Program.cs
 C:\Users\rael\Documents\Visual Studio 2015\Projects\Livraria\src\Livraria\Startup.cs
-C:\Users\rael\Documents\Visual Studio 2015\Projects\Livraria\src\Livraria\Controllers\ValuesController.cs
+C:\Users\rael\Documents\Visual Studio 2015\Projects\Livraria\src\Livraria\Controllers\LivrosController.cs
 C:\Users\rael\Documents\Visual Studio 2015\Projects\Livraria\src\Livraria\Migrations\20170708165204_Inicial.cs
 C:\Users\rael\Documents\Visual Studio 2015\Projects\Livraria\src\Livraria\Migrations\20170708165204_Inicial.Designer.cs
 C:\Users\rael\Documents\Visual Studio 2015\Projects\Livraria\src\Livraria\Migrations\AppDbContextModelSnapshot.cs

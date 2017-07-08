@@ -10,6 +10,8 @@ using Microsoft.Extensions.Logging;
 using Livraria.Repositories;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore;
+using Livraria.Repositories.Core;
+using Livraria.Repositories.Persistence;
 
 namespace Livraria
 {
@@ -38,6 +40,9 @@ namespace Livraria
 
             // Add AppDbContext
             services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration["Data:DefaultConnection:ConnectionString"]));
+
+            // Depency Injection
+            services.AddTransient<IUnitOfWork, UnitOfWork>();
             
         }
 
@@ -47,7 +52,16 @@ namespace Livraria
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
-            app.UseMvc();
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute("default", "{controller=Livros}/{action=Index}/{id?}");
+            });
+
+            app.Run(context =>
+            {
+                context.Response.Redirect("/");
+                return Task.FromResult<object>(null);
+            });
         }
     }
 }
